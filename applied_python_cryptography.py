@@ -13,3 +13,5 @@ my_dict = {
 }
 
 print(my_dict["C"])
+print(my_name[0].isupper())
+print(my_name[0].islower())
