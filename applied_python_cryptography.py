@@ -15,3 +15,13 @@ my_dict = {
 print(my_dict["C"])
 print(my_name[0].isupper())
 print(my_name[0].islower())
+
+# define a function
+def add_numbers(number1, number2):
+    return number1 + number2
+
+number1 = 6
+number2 = 9
+
+results = add_numbers(number1, number2)
+print(results)
