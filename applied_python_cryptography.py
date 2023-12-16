@@ -28,3 +28,12 @@ print(results)
 
 sqrt_results = sqrt(16);
 print(sqrt_results)
+
+start = 1
+end = 10
+
+for i in range(start, end + 1):
+    if i % 2 == 0:
+        print(i, "is even")
+    else:
+        print(i, " is odd")
