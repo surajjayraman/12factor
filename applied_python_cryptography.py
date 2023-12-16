@@ -25,3 +25,6 @@ number2 = 9
 
 results = add_numbers(number1, number2)
 print(results)
+
+sqrt_results = sqrt(16);
+print(sqrt_results)
