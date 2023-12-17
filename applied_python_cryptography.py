@@ -78,4 +78,15 @@ def decrypt(ciphertext, shift_key):
 
     return decrypted_plaintext
 
+# user input for cipher 
+
+plaintext = input ("Enter plaintext: ")
+shift_key=10
+ciphertext = encrypt(plaintext, shift_key)
+decrypted_cipher = decrypt(ciphertext, shift_key)
+print(ciphertext)
+print(str(shift_key))
+print(decrypted_cipher)
+
+
 
