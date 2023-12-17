@@ -37,3 +37,24 @@ for i in range(start, end + 1):
         print(i, "is even")
     else:
         print(i, " is odd")
+
+
+# The Caesar Cipher
+def encrypt (plaintext, shift_key):
+    ciphertext = ""
+    for char in plaintext:
+        if char.isupper():
+            char_index = ord(char) - ord("A")
+            char_shifted = (char_index + shift_key) % 26 + ord("A")
+            char_encrypted = chr(char_shifted)
+            ciphertext += char_encrypted
+        elif char.islower():
+            char_index = ord(char) - ord("a")
+            char_shifted = (char_index + shift_key) % 26 + ord("a")
+            char_encrypted = chr(char_shifted)
+            ciphertext += char_encrypted
+        else :
+            ciphertext += char
+
+    return ciphertext    
+
