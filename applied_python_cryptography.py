@@ -39,7 +39,7 @@ for i in range(start, end + 1):
         print(i, " is odd")
 
 
-# The Caesar Cipher
+# The Caesar Cipher encryption and decryption
 def encrypt (plaintext, shift_key):
     ciphertext = ""
     for char in plaintext:
@@ -56,5 +56,26 @@ def encrypt (plaintext, shift_key):
         else :
             ciphertext += char
 
-    return ciphertext    
+    return ciphertext
+
+def decrypt(ciphertext, shift_key):
+
+    decrypted_plaintext = ""
+
+    for char in ciphertext:
+        if char.isupper():
+            char_index = ord(char) - ord("A")
+            char_unshifted = (char_index  - shift_key) % 26 + ord("A")
+            char_decrypted = chr(char_unshifted)
+            decrypted_plaintext += char_decrypted
+        elif char.islower():
+            char_index = ord(char) - ord("a")
+            char_unshifted = (char_index - shift_key) % 26 + ord("a")
+            char_decrypted = chr(char_unshifted)
+            decrypted_plaintext += char_decrypted
+        else :
+            decrypted_plaintext += char
+
+    return decrypted_plaintext
+
 
