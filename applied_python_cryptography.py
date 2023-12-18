@@ -135,11 +135,17 @@ def vig_encrypt(plaintext, vig_cypher, counter):
             counter = 0
         if not char.isalpha():
             vig_char = char
-        ciphertext += vig_char
+
+        ciphertext += str(vig_char)
 
     return ciphertext
 
-            
+vig_cypher = "Penguin"
+plaintext = input("Enter plaintext: ")
+
+counter = 0;
+cyphertext = vig_encrypt(plaintext, vig_cypher, counter)
+print("Vignere Cypher Text" , cyphertext)
 
 
 
