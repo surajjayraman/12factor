@@ -111,6 +111,37 @@ caesar_bruteforce(ciphertext)
 # the vigenere cipher
 def vig_encrypt(plaintext, vig_cypher, counter):
     print('Hi from the vigenere cipher algo')
+    ciphertext = ""
+
+    for char in plaintext:
+        vig_key_value = 0
+        if char.islower():
+            vig_key = vig_cypher[counter]
+            if vig_key.islower():
+                vig_key_value = ord(vig_key) - ord("a")
+            elif vig_key.isupper():
+                vig_key_value = ord(vig_key) - ord("A")
+            vig_char = (((ord(char) - ord("a") + vig_key_value) % 26) + ord("a"))
+            counter += 1
+        if char.isupper():
+            vig_key = vig_cypher[counter]
+            if vig_key.islower():
+                vig_key_value = ord(vig_key) - ord("a")
+            elif vig_key.isupper():
+                vig_key_value = ord(vig_key) - ord("A")
+            vig_char = (((ord(char) - ord("A") + vig_key_value) % 26) + ord("A"))
+            counter += 1
+        if counter == len(vig_cypher):
+            counter = 0
+        if not char.isalpha():
+            vig_char = char
+        ciphertext += vig_char
+
+    return ciphertext
+
+            
+
+
 
 
 
