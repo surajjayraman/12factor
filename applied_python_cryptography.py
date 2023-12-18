@@ -108,6 +108,10 @@ def caesar_bruteforce(ciphertext):
 
 caesar_bruteforce(ciphertext)
 
+# the vigenere cipher
+def vig_encrypt(plaintext, vig_cypher, counter):
+    print('Hi from the vigenere cipher algo')
+
 
 
 
