@@ -21,7 +21,9 @@ initialization_vector = get_random_bytes(16);
 
 ciphertext = AES_CBC_encrypt(plaintext, AES_key, initialization_vector)
 
-#decrypted_plaintext = AES_CBC_decrypt(plaintext, AES_key, initialization_vector)
+decrypted_plaintext = AES_CBC_decrypt(ciphertext, AES_key, initialization_vector)
 
+# tests
 print("Plaintext: ", plaintext.decode("ASCII"))
 print("Ciphertext: " +ciphertext.hex())
+print("Decrypted Plain text: " +decrypted_plaintext.decode("ASCII"))
