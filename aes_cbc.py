@@ -13,4 +13,15 @@ def AES_CBC_decrypt(ciphertext, AES_key, initialization_vector):
     decrypted_plaintext = unpad(AES_CBC_cipher.decrypt(ciphertext), AES.block_size)
     return decrypted_plaintext
 
+plaintext  = input("Enter plain text: ").encode("ASCII")
 
+AES_key = get_random_bytes(16)
+
+initialization_vector = get_random_bytes(16);
+
+ciphertext = AES_CBC_encrypt(plaintext, AES_key, initialization_vector)
+
+#decrypted_plaintext = AES_CBC_decrypt(plaintext, AES_key, initialization_vector)
+
+print("Plaintext: ", plaintext.decode("ASCII"))
+print("Ciphertext: " +ciphertext.hex())
