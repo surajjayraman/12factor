@@ -17,7 +17,7 @@ plaintext  = input("Enter plain text: ").encode("ASCII")
 
 AES_key = get_random_bytes(16)
 
-initialization_vector = get_random_bytes(16);
+initialization_vector = get_random_bytes(16)
 
 ciphertext = AES_CBC_encrypt(plaintext, AES_key, initialization_vector)
 
