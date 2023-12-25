@@ -23,5 +23,7 @@ ciphertext = DES3_CTR_encrypt(plaintext, DES3_key, nonce)
 decrypted_plaintext = DES3_CTR_decrypt(ciphertext, DES3_key, nonce)
 
 print("Plaintext: ", plaintext.decode())
+
 print("Cyphertext: ", ciphertext.hex())
+
 print("Decrypted Plaintext: ", decrypted_plaintext.decode())
