@@ -25,6 +25,12 @@ def sha256_hash_password(example_password, input_password):
     print("Input password: ",input_password)
     print("Input SHA256 hash", input_sha256_hash)
 
+    if (example_sha256_hash == input_sha256_hash ):
+        print("Passwords Match!")
+    else:
+        print("Passwords do not match")
+
+
 
 example_password = input("Enter example password: ").encode("ASCII")
 input_password = input("Enter input password: ").encode("ASCII")
