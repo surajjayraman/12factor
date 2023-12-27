@@ -13,6 +13,10 @@ def calculate_checksum(file_path):
     
     return file_hash.hexdigest()
 
+file_path = "example_file.txt"
 
+checksum = calculate_checksum(file_path)
+
+print("The checksum of ", file_path, " is ", checksum)
 
 
