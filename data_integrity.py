@@ -19,4 +19,7 @@ checksum = calculate_checksum(file_path)
 
 print("The checksum of ", file_path, " is ", checksum)
 
+with open(file_path, "w") as f:
+    f.write("This file has been modified")
+
 
