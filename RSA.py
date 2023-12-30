@@ -24,13 +24,31 @@ def encrypt_plaintext(symmetric_key, nonce, plaintext):
 
     return ciphertext
 
-def decrypt_plaintext(symmetric_key, nonce, plaintext):
+def decrypt_plaintext(symmetric_key, nonce, ciphertext):
 
     symmetric_cipher = AES.new(symmetric_key, AES.MODE_GCM, nonce=nonce)
-    decrypt_plaintext = symmetric_cipher.decrypt(plaintext)
+    decrypted_plaintext = symmetric_cipher.decrypt(ciphertext)
 
-    return decrypt_plaintext
+    return decrypted_plaintext
 
+symmetric_key = get_random_bytes(16)
+nonce = get_random_bytes(12)
+
+plaintext = input("Enter your secret message: ").encode()
+RSA_key = RSA.generate(2048)
+
+private_key = RSA_key.export_key(format="PEM")
+public_key = RSA_key.publickey().export_key(format="PEM")
+
+encrypted_symmetric_key = encrypt_symmetric_key(symmetric_key, public_key)
+decrypted_symmetric_key = decrypt_symmetric_key(encrypted_symmetric_key, private_key)
+
+ciphertext = encrypt_plaintext(symmetric_key, nonce, plaintext)
+decrypted_plaintext = decrypt_plaintext(symmetric_key, nonce, ciphertext)
+
+print("\nPlaintext: ", plaintext.decode())
+print("\nCiphertext: ", ciphertext.hex())
+print("\nDecryptedtext: ", decrypted_plaintext.decode())
 
 
 
