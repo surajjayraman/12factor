@@ -16,3 +16,14 @@ def decrypt_symmetric_key(encrypted_symmetric_key, private_key):
     decrypted_symmetric_key = RSA_cipher.decrypt(encrypted_symmetric_key)
 
     return decrypted_symmetric_key
+
+def encrypt_plaintext(symmetric_key, nonce, plaintext):
+
+    symmetric_cipher = AES.new(symmetric_key, AES.MODE_GCM, nonce=nonce)
+    ciphertext = symmetric_cipher.encrypt(plaintext)
+
+    return ciphertext
+
+
+
+
