@@ -24,6 +24,15 @@ def encrypt_plaintext(symmetric_key, nonce, plaintext):
 
     return ciphertext
 
+def decrypt_plaintext(symmetric_key, nonce, plaintext):
+
+    symmetric_cipher = AES.new(symmetric_key, AES.MODE_GCM, nonce=nonce)
+    decrypt_plaintext = symmetric_cipher.decrypt(plaintext)
+
+    return decrypt_plaintext
+
+
+
 
 
 
