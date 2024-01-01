@@ -1,7 +1,7 @@
 from Crypto.Cipher import AES
 from Crypto.PublicKey import RSA
 from Crypto.Signature import pkcs1_15
-from Crypto.hash import HMAC, SHA256
+from Crypto.Hash import HMAC, SHA256
 from Crypto.Random import get_random_bytes
 
 def generate_mac(symmetric_key, nonce, plaintext):
@@ -40,7 +40,20 @@ def verify_signature(public_key, plaintext, digital_signature):
     except:
         return "\nSignature is invalid!"
 
+symmetric_key = get_random_bytes(16)
+nonce = get_random_bytes(12)
 
+plaintext = input("Enter your secret message:").encode()
+mac = generate_mac(symmetric_key, nonce, plaintext)
+print("Mac: ", mac.hex())
+
+ciphertext_with_digest = generate_hmac(symmetric_key, nonce, plaintext)
+
+RSA_key = RSA.generate(2048)
+private_key = RSA_key.export_key()
+public_key = RSA_key.publickey().export_key()
+digital_signature = generate_signature(private_key, plaintext)
+print(verify_signature(public_key, plaintext, digital_signature))
 
 
 
