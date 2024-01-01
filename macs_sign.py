@@ -21,6 +21,14 @@ def generate_hmac(symmetric_key, nonce, plaintext):
 
     return ciphertext_with_digest
 
+def generate_signature(private_key, plaintext):
+
+    RSA_private_key = RSA.import_key(private_key)
+    sha256_hash = SHA256.new(plaintext)
+    digital_signature = pkcs1_15.new(RSA_private_key).sign(sha256_hash)
+
+    return digital_signature
+
 
 
 
