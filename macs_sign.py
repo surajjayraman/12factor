@@ -34,6 +34,14 @@ def verify_signature(public_key, plaintext, digital_signature):
     RSA_public_key = RSA.import_key(public_key)
     verification_sha256_hash = SHA256.new(plaintext)
 
+    try:
+        pkcs1_15.new(RSA_public_key).verify(verification_sha256_hash, digital_signature)
+        return "\nSignature is valid!"
+    except:
+        return "\nSignature is invalid!"
+
+
+
 
 
 
