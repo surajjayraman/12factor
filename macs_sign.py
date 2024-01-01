@@ -29,7 +29,10 @@ def generate_signature(private_key, plaintext):
 
     return digital_signature
 
+def verify_signature(public_key, plaintext, digital_signature):
 
+    RSA_public_key = RSA.import_key(public_key)
+    verification_sha256_hash = SHA256.new(plaintext)
 
 
 
