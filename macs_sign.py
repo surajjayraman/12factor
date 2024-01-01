@@ -11,6 +11,19 @@ def generate_mac(symmetric_key, nonce, plaintext):
 
     return mac
 
+def generate_hmac(symmetric_key, nonce, plaintext):
+
+    hmac_object = HMAC.new(symmetric_key, plaintext, digestmod=SHA256)
+    hmac_digest = hmac_object.digest()
+    symmetric_cipher = AES.new(symmetric_key, AES.MODE_CTR, nonce=nonce)
+    ciphertext = symmetric_cipher.encrypt(plaintext)
+    ciphertext_with_digest = ciphertext + hmac_digest
+
+    return ciphertext_with_digest
+
+
+
+
 
 
 
